@@ -1,0 +1,13 @@
+.app {
+  padding: 2rem;
+  width: 100vw;
+  height: 100svh;
+  box-sizing: border-box;
+}
+
+.app__heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--fg);
+}

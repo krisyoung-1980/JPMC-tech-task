@@ -1,0 +1,28 @@
+.header {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  background-color: color-mix(in srgb, var(--header-bg), transparent 50%);
+}
+
+.sort {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  color: var(--fg);
+  box-sizing: border-box;
+}
+
+.sort--active {
+  color: var(--color-blue-400);
+}
+
+.sort-icon {
+  margin-left: 0.5rem;
+  font-size: 0.75em;
+  opacity: 0.6;
+}

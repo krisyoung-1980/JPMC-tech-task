@@ -1,0 +1,40 @@
+.table__row--equities td:first-child,
+.table__row--macro td:first-child,
+.table__row--credit td:first-child {
+  position: relative;
+  padding-left: 1.5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+  }
+}
+
+.table__row--equities td:first-child::before {
+  background-color: var(--color-blue-600);
+}
+
+.table__row--macro td:first-child::before {
+  background-color: var(--color-neutral-0);
+}
+
+.table__row--credit td:first-child::before {
+  background-color: var(--color-green-500);
+}
+
+.price {
+  color: var(--color-positive);
+  font-weight: 600;
+  text-align: right;
+}
+
+.price--negative {
+  color: var(--color-negative);
+  font-weight: 600;
+  text-align: right;
+}

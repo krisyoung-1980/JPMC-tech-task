@@ -1,0 +1,8 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  color: var(--fg);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
