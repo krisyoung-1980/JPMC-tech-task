@@ -26,3 +26,25 @@ npm run dev
 | `npm run typecheck`  | Type-check without building         |
 | `npm run lint`       | Lint                                |
 | `npm run format`     | Format source files                 |
+
+## Usage
+
+### Sorting
+
+Click any sortable column header to cycle through sort states. Each column defines its own cycle order:
+
+| Column      | Default  | Cycle                 |
+| ----------- | -------- | --------------------- |
+| Ticker      | unsorted | asc → desc → unsorted |
+| Asset Class | asc      | asc → desc → unsorted |
+| Price       | unsorted | desc → asc → unsorted |
+
+#### Multi-column sort
+
+Hold **Shift** and click a second column header to add it as a secondary sort. Priority order is shown numerically on each active header (e.g. `1▲`, `2▼`). A plain click (without Shift) resets to single-column sort.
+
+### Virtualisation
+
+Row windowing is handled by [`@tanstack/react-virtual`](https://tanstack.com/virtual). Only the rows visible within the scroll container are rendered to the DOM — the remaining rows are represented by two spacer `<tr>` elements (above and below) that keep the scrollbar proportion accurate.
+
+The scroll container fills the remaining viewport height via flexbox. `@tanstack/react-virtual` observes the container with `ResizeObserver` internally, so the visible row count adjusts automatically on window resize.
