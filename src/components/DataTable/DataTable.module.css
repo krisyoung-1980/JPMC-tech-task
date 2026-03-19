@@ -1,8 +1,14 @@
+.scroll-container {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  border: solid 1px var(--border);
+  border-radius: 0.25rem;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
   color: var(--fg);
-  border-radius: 0.25rem;
-  overflow: hidden;
 }

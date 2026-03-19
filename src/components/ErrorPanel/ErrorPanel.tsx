@@ -8,7 +8,7 @@ interface ErrorPanelProps {
 export const ErrorPanel = ({ title, message }: ErrorPanelProps) => (
   <div className={styles.error} role="alert">
     <svg
-      className={styles.icon}
+      className={styles["error__icon"]}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -25,8 +25,8 @@ export const ErrorPanel = ({ title, message }: ErrorPanelProps) => (
       />
     </svg>
     <div>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.message}>{message}</div>
+      <div className={styles["error__title"]}>{title}</div>
+      <div className={styles["error__message"]}>{message}</div>
     </div>
   </div>
 );

@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
+import { useVirtualizer } from "@tanstack/react-virtual";
 import type { ColumnDef } from "../../types";
 import { useSort } from "../../hooks/useSort";
 import { useTableState, TableStateContext } from "../../hooks/useTableState";
@@ -26,21 +27,35 @@ const Table = <T,>({
     [data, activeSorts, columns],
   );
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // eslint-disable-next-line react-hooks/incompatible-library -- opted out of memoization via "use no memo"
+  const virtualizer = useVirtualizer({
+    count: sorted.length,
+    getScrollElement: () => scrollRef.current,
+    estimateSize: () => 37,
+    overscan: 5,
+  });
+
   return (
-    <table className={styles.table} aria-label="Financial instruments">
-      <colgroup>
-        {columns.map((col) => (
-          <col key={String(col.field)} style={{ width: col.width }} />
-        ))}
-      </colgroup>
-      <TableHead columns={columns} />
-      <TableBody
-        rows={sorted}
-        columns={columns}
-        getRowKey={getRowKey}
-        getRowClassName={getRowClassName}
-      />
-    </table>
+    <div ref={scrollRef} className={styles["scroll-container"]}>
+      <table className={styles.table} aria-label="Financial instruments">
+        <colgroup>
+          {columns.map((col) => (
+            <col key={String(col.field)} style={{ width: col.width }} />
+          ))}
+        </colgroup>
+        <TableHead columns={columns} />
+        <TableBody
+          rows={sorted}
+          virtualItems={virtualizer.getVirtualItems()}
+          totalSize={virtualizer.getTotalSize()}
+          columns={columns}
+          getRowKey={getRowKey}
+          getRowClassName={getRowClassName}
+        />
+      </table>
+    </div>
   );
 };
 

@@ -38,7 +38,7 @@ export const TableHead = <T,>({ columns }: TableHeadProps<T>) => {
                   }
                 >
                   {col.label}
-                  <span className={styles["sort-icon"]} aria-hidden="true">
+                  <span className={styles["sort__icon"]} aria-hidden="true">
                     {entry ? sortIcon(entry, entryIndex, sorts.length) : " ⇅"}
                   </span>
                 </button>
