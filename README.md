@@ -48,3 +48,5 @@ Hold **Shift** and click a second column header to add it as a secondary sort. P
 Row windowing is handled by [`@tanstack/react-virtual`](https://tanstack.com/virtual). Only the rows visible within the scroll container are rendered to the DOM — the remaining rows are represented by two spacer `<tr>` elements (above and below) that keep the scrollbar proportion accurate.
 
 The scroll container fills the remaining viewport height via flexbox. `@tanstack/react-virtual` observes the container with `ResizeObserver` internally, so the visible row count adjusts automatically on window resize.
+
+***Note: The spec specifically forbade the use of a table rendering library, but it wasn't clear if it was ok to use supporting libraries such as the above. If for any reason it's not ok then simply revert to the initial commit which has no virtualisation applied.***
